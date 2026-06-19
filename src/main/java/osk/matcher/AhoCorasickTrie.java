@@ -1,13 +1,12 @@
 package osk.matcher;
 
 import java.util.List;
-import java.util.Map;
 
 public class AhoCorasickTrie {
     private Character parentChar;
     private String value;
     private AhoCorasickTrie parent;
-    private AhoCorasickTrie failureLink;
+    private AhoCorasickTrie suffixLink;
     private AhoCorasickTrie exitLink;
     private AhoCorasickTrie[] nextMap;
 
@@ -15,7 +14,7 @@ public class AhoCorasickTrie {
         this.parentChar = parentChar;
         this.value = null;
         this.parent = null;
-        this.failureLink = null;
+        this.suffixLink = null;
         this.exitLink = null;
         this.nextMap = new AhoCorasickTrie[128];
     }
@@ -24,7 +23,7 @@ public class AhoCorasickTrie {
         this.parentChar = parentChar;
         this.value = value;
         this.parent = null;
-        this.failureLink = null;
+        this.suffixLink = null;
         this.exitLink = null;
         this.nextMap = new AhoCorasickTrie[128];
     }
@@ -33,7 +32,7 @@ public class AhoCorasickTrie {
         this.parentChar = null;
         this.value = null;
         this.parent = null;
-        this.failureLink = null;
+        this.suffixLink = null;
         this.exitLink = null;
         this.nextMap = new AhoCorasickTrie[128];
         for (String pattern : patterns) {
@@ -45,7 +44,7 @@ public class AhoCorasickTrie {
         this.parentChar = null;
         this.value = value;
         this.parent = null;
-        this.failureLink = null;
+        this.suffixLink = null;
         this.exitLink = null;
         this.nextMap = new AhoCorasickTrie[128];
         for (String pattern : patterns) {
@@ -63,40 +62,41 @@ public class AhoCorasickTrie {
                 } else {
                     current.nextMap[ch] = new AhoCorasickTrie(ch, pattern);
                 }
+                current.nextMap[ch].parent = current;
             }
             current = current.nextMap[ch];
         }
     }
 
     public AhoCorasickTrie getNext(char nextChar) {
-        if (nextMap[nextChar] != null) {
+        if (0 <= nextChar && nextChar < 128 && nextMap[nextChar] != null) {
             return nextMap[nextChar];
         } else {
             if (isRoot())
                 return this;
             else
-                return getFailureLink().getNext(nextChar);
+                return getSuffixLink().getNext(nextChar);
         }
     }
 
-    public AhoCorasickTrie getFailureLink() {
-        if (failureLink == null) {
+    public AhoCorasickTrie getSuffixLink() {
+        if (suffixLink == null) {
             if (isRoot()) {
-                failureLink = this;
+                suffixLink = this;
             } else if (parent.isRoot()) {
-                failureLink = parent;
+                suffixLink = parent;
             } else {
-                failureLink = parent.getFailureLink().getNext(parentChar);
+                suffixLink = parent.getSuffixLink().getNext(parentChar);
             }
         }
-        return failureLink;
+        return suffixLink;
     }
 
     public AhoCorasickTrie getExitLink() {
         if (exitLink == null) {
             AhoCorasickTrie current = this;
             while (!current.isRoot() && !current.hasValue()) {
-                current = current.getFailureLink();
+                current = current.getSuffixLink();
             }
             exitLink = current;
         }
