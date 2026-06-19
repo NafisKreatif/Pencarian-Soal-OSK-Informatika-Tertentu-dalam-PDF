@@ -19,30 +19,9 @@ public class AhoCorasickTrie {
         this.nextMap = new AhoCorasickTrie[128];
     }
 
-    private AhoCorasickTrie(char parentChar, String value) {
-        this.parentChar = parentChar;
-        this.value = value;
-        this.parent = null;
-        this.suffixLink = null;
-        this.exitLink = null;
-        this.nextMap = new AhoCorasickTrie[128];
-    }
-
     public AhoCorasickTrie(List<String> patterns) {
         this.parentChar = null;
         this.value = null;
-        this.parent = null;
-        this.suffixLink = null;
-        this.exitLink = null;
-        this.nextMap = new AhoCorasickTrie[128];
-        for (String pattern : patterns) {
-            addPattern(pattern);
-        }
-    }
-
-    public AhoCorasickTrie(String value, List<String> patterns) {
-        this.parentChar = null;
-        this.value = value;
         this.parent = null;
         this.suffixLink = null;
         this.exitLink = null;
@@ -57,15 +36,12 @@ public class AhoCorasickTrie {
         for (int i = 0; i < pattern.length(); i++) {
             char ch = pattern.charAt(i);
             if (current.nextMap[ch] == null) {
-                if (i < pattern.length() - 1) {
-                    current.nextMap[ch] = new AhoCorasickTrie(ch);
-                } else {
-                    current.nextMap[ch] = new AhoCorasickTrie(ch, pattern);
-                }
+                current.nextMap[ch] = new AhoCorasickTrie(ch);
                 current.nextMap[ch].parent = current;
             }
             current = current.nextMap[ch];
         }
+        current.value = pattern;
     }
 
     public AhoCorasickTrie getNext(char nextChar) {
