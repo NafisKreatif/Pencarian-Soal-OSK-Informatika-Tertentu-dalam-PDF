@@ -1,0 +1,78 @@
+{
+    "aljabar": [
+
+    ],
+    "himpunan": [
+
+    ],
+    "barisan dan deret": [
+        
+    ],
+    "geometri": [
+        "segitiga"
+    ],
+    "aritmetika modulo": [
+        "mod",
+        "dibagi",
+        "sisa"
+    ],
+    "kombinatorika": [
+        "banyak cara",
+        "berapakah banyak",
+        "berapa banyak",
+        "kombinasi"
+    ],
+    "peluang": [
+        "peluang"
+    ],
+    "pigeon hole principle": [
+
+    ],
+    "graf": [
+        "perjalanan",
+        "jalur",
+        "terhubung"
+    ],
+    "minimum spanning tree": [
+
+    ],
+    "shortest path": [
+
+    ],
+    "directed acyclic graph": [
+        "prasyarat",
+        "urutan tertentu",
+        "terlebih dahulu"
+    ],
+    "pohon": [
+
+    ],
+    "binary search": [
+        "membandingkan",
+        "31",
+        "32",
+        "63",
+        "64",
+        "127",
+        "128",
+        "255",
+        "256",
+        "511",
+        "512",
+        "1023",
+        "1024"
+    ],
+    "rekursi": [
+
+    ],
+    "string": [
+
+    ],
+    "fpb": [
+
+    ],
+    "soal beranak": [
+        "untuk soal",
+        "untuk menjawab"
+    ]
+}

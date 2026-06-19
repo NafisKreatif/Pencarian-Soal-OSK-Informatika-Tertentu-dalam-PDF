@@ -1,0 +1,50 @@
+{
+    "aljabar": [
+
+    ],
+    "himpunan": [
+
+    ],
+    "barisan dan deret": [
+        "\\d{1,},\\s*\\d{1,},\\s*\\d{1,}"
+    ],
+    "geometri": [
+
+    ],
+    "aritmetika modulo": [
+        "\\d{1,}\\s+(mod|%)\\s+\\d{1,}"
+    ],
+    "kombinatorika": [
+
+    ],
+    "peluang": [
+
+    ],
+    "pigeon hole principle": [
+
+    ],
+    "graf": [
+
+    ],
+    "minimum spanning tree": [
+
+    ],
+    "shortest path": [
+
+    ],
+    "pohon": [
+
+    ],
+    "binary search": [
+
+    ],
+    "rekursi": [
+        "(\\w+\\().*?\\1"
+    ],
+    "fpb": [
+        "(\\((\\w+),\\s+(\\w+)\\s?%\\s?(\\2)\\))|(\\((\\w+)\\s?%\\s?(\\w+),\\s+(\\7)\\))"
+    ],
+    "soal beranak": [
+        "\\d{1,}\\s+((s\\.d\\.)|(sampai dengan)|(hingga)|(sampai))\\s+\\d{1,}"
+    ]
+}
