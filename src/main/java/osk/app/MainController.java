@@ -46,6 +46,8 @@ public class MainController {
     private VBox tagVBox;
     @FXML
     private VBox resultVBox;
+    @FXML
+    private Button searchButton;
 
     @FXML
     private void initialize() {
@@ -70,6 +72,7 @@ public class MainController {
                 pdfNameLabel.setText(selectedFile.getName());
                 pageLabel.setText("Total Page: " + openedPDF.getNumberOfPages());
                 closePdfButton.setDisable(false);
+                searchButton.setDisable(false);
                 renderPDF();
                 System.out.println("Opened " + selectedFile.getName());
             } catch (IOException e) {
@@ -91,6 +94,7 @@ public class MainController {
             pdfNameLabel.setText("No file opened");
             pageLabel.setText("Total Page: 0");
             closePdfButton.setDisable(true);
+            searchButton.setDisable(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -141,13 +145,28 @@ public class MainController {
             StringBuilder numberText = new StringBuilder();
             boolean first = true;
             for (Integer number : searchResult.numbers) {
-                if (!first) numberText.append(", ");
-                else first = false;
+                if (!first)
+                    numberText.append(", ");
+                else
+                    first = false;
                 numberText.append("Soal " + number);
+            }
+            if (searchResult.numbers.isEmpty()) {
+                numberText.append("-");
             }
             Label numberLabel = new Label(numberText.toString());
             numberLabel.setWrapText(true);
             soalVBox.getChildren().add(numberLabel);
+            resultVBox.getChildren().add(soalVBox);
+        }
+        for (SoalToTagSearchResult searchResult : searchResults.getKey()) {
+            Label soalLabel = new Label("Soal " + searchResult.number + ":");
+            VBox soalVBox = new VBox(soalLabel);
+            soalVBox.setSpacing(5);
+            for (String tag : searchResult.tags) {
+                Label tagLabel = new Label(tag);
+                soalVBox.getChildren().add(tagLabel);
+            }
             resultVBox.getChildren().add(soalVBox);
         }
     }
