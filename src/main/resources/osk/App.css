@@ -1,0 +1,7 @@
+.pdf-open {
+    -fx-background-color: #ebebeb;
+    -fx-cursor: hand;
+}
+.pdf-open:hover {
+    -fx-background-color: #d5f5ff;
+}
