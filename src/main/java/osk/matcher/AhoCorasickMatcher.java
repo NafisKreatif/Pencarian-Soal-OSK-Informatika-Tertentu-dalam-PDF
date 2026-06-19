@@ -15,7 +15,7 @@ public class AhoCorasickMatcher implements Matchable {
         }
         this.rootTrie = trie;
     }
-    
+
     @Override
     public List<MatchResult> getMatches(String input) {
         if (input == null) {
@@ -37,5 +37,23 @@ public class AhoCorasickMatcher implements Matchable {
             }
         }
         return results;
+    }
+
+    @Override
+    public boolean hasMatch(String input) {
+        if (input == null) {
+            return false;
+        }
+
+        int currentIndex = 0;
+        AhoCorasickTrie currentTrie = rootTrie;
+
+        while (currentIndex < input.length()) {
+            currentTrie = currentTrie.getNext(input.charAt(currentIndex++));
+            if (currentTrie.hasValue()) {
+                return true;
+            }
+        }
+        return false;
     }
 }
