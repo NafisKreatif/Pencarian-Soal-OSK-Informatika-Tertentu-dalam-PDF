@@ -25,15 +25,20 @@
             <CheckBox text="pigeon hole principle" selected="true"/>
             <CheckBox text="graf" selected="true"/>
             <CheckBox text="minimum spanning tree" selected="true"/>
+            <CheckBox text="directed acyclic graph" selected="true"/>
             <CheckBox text="shortest path" selected="true"/>
             <CheckBox text="pohon" selected="true"/>
             <CheckBox text="binary search" selected="true"/>
             <CheckBox text="rekursi" selected="true"/>
             <CheckBox text="fpb" selected="true"/>
+            <CheckBox text="dynamic programming" selected="true"/>
             <CheckBox text="soal beranak" selected="true"/>
+            <CheckBox text="pilihan ganda" selected="true"/>
+            <CheckBox text="isian singkat" selected="true"/>
+            <CheckBox text="benar salah" selected="true"/>
          </VBox>
          <Label text="Search"/>
-         <Button fx:id="searchButton" text="Cari Soal" onAction="#searchSoal"/>
+         <Button fx:id="searchButton" text="Cari Soal" onAction="#searchSoal" disable="true"/>
       </VBox>
       <padding>
          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

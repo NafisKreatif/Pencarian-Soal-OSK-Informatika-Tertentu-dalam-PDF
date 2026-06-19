@@ -6,10 +6,15 @@
 
     ],
     "barisan dan deret": [
-        
+        "suku",
+        "deret",
+        "selisih",
+        "rasio",
+        "kali lipat"
     ],
     "geometri": [
-        "segitiga"
+        "segi",
+        "luas"
     ],
     "aritmetika modulo": [
         "mod",
@@ -20,6 +25,8 @@
         "banyak cara",
         "berapakah banyak",
         "berapa banyak",
+        "Berapakah banyak",
+        "Berapa banyak",
         "kombinasi"
     ],
     "peluang": [
@@ -31,13 +38,16 @@
     "graf": [
         "perjalanan",
         "jalur",
-        "terhubung"
+        "rute",
+        "lajur",
+        "terhubung",
+        "menelusuri"
     ],
     "minimum spanning tree": [
-
+        "tetap terhubung"
     ],
     "shortest path": [
-
+        "jarak minimum"
     ],
     "directed acyclic graph": [
         "prasyarat",
@@ -45,34 +55,36 @@
         "terlebih dahulu"
     ],
     "pohon": [
-
+        "N - 1",
+        "N-1"
     ],
     "binary search": [
-        "membandingkan",
-        "31",
-        "32",
-        "63",
-        "64",
-        "127",
-        "128",
-        "255",
-        "256",
-        "511",
-        "512",
-        "1023",
-        "1024"
+        "membandingkan"
     ],
     "rekursi": [
 
     ],
     "string": [
-
+        "string"
     ],
     "fpb": [
 
     ],
+    "dynamic programming": [
+        "ubin"
+    ],
     "soal beranak": [
         "untuk soal",
         "untuk menjawab"
+    ],
+    "pilihan ganda": [
+
+    ],
+    "isian singkat": [
+        "Tuliskan jawaban"
+    ],
+    "benar salah": [
+        "BENAR",
+        "SALAH"
     ]
 }
